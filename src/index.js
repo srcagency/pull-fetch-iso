@@ -15,6 +15,7 @@ var ponyFetch = require('./fetch-ponyfill');
 var fetch = typeof window !== 'undefined' && window.fetch || ponyFetch;
 var FormData = typeof window !== 'undefined' && window.FormData;
 var File = typeof window !== 'undefined' && window.File;
+var TextDecoder = typeof window !== 'undefined' && window.TextDecoder;
 
 var responseMap = {
 	1: responses.Error,
@@ -152,7 +153,7 @@ function pumpJson( response ){
 	if (response.source)
 		return jsonParse(response.source);
 
-	var reader = response.body && response.body.getReader();
+	var reader = TextDecoder && response.body && response.body.getReader();
 
 	if (!reader)
 		return jsonParse(promiseToPull(response.text()));
