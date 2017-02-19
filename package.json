@@ -2,7 +2,7 @@
 	"name": "pull-fetch-iso",
 	"description": "Opinionated one-function http client for Node.js and browser bundles",
 	"repository": "srcagency/pull-fetch-iso",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "src",
 	"scripts": {
 		"test": "node test"
